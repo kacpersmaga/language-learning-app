@@ -1,20 +1,32 @@
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { StyleSheet } from 'react-native';
+import SplashScreen from './src/views/screens/SplashScreen';
+import AppNavigator from './src/navigation/AppNavigator';
 
 export default function App() {
+  const [splashDone, setSplashDone] = useState(false);
+
+  if (!splashDone) {
+    return (
+      <GestureHandlerRootView style={styles.root}>
+        <StatusBar style="light" />
+        <SplashScreen onFinish={() => setSplashDone(true)} />
+      </GestureHandlerRootView>
+    );
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <GestureHandlerRootView style={styles.root}>
       <StatusBar style="auto" />
-    </View>
+      <AppNavigator />
+    </GestureHandlerRootView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  root: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
