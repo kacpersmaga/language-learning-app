@@ -3,7 +3,8 @@
     "name": "language-learning-app",
     "slug": "language-learning-app",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "name": "LinguaLearn",
+    "orientation": "default",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
@@ -22,7 +23,14 @@
     },
     "plugins": [
       "expo-splash-screen",
-      "expo-font"
+      "expo-font",
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/icon.png",
+          "color": "#4F46E5"
+        }
+      ]
     ]
   }
 }
